@@ -20,7 +20,7 @@ After the image is classified, the predictions of the model are displayed to the
 
 ## Description of files
 
-[i]/root/app[/i]
+<i>/root/app>/i>
 
 [i]app.py[/i]: Contains the code for running the Flask app.
 
