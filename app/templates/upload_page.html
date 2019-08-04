@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flowers - Upload Image</title>
+</head>
+<body>
+    <h1>Flowers</h2>
+    <p>Predict the species of a flower from an image.</p>
+    
+    <h2>Upload Image</h2>
+    <form id="upload-form" action="{{ url_for('upload_function') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload image">
+    </form>
+    <p><b>{{ message }}</b></p>
+</body>
+</html>

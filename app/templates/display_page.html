@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flowers - Image Uploaded</title>
+</head>
+<body>
+    <h1>Flowers</h2>
+    <p>Predict the species of a flower from an image.</p>
+    
+    <h2>Image uploaded</h2>
+    <p>Image uploaded: {{ filename }}</p>
+    <img src=" {{ url_for('send_image_function', filename=filename) }}">
+
+    <h2>Predict the species with a deep neural network</h2>
+    <p></p><b>Classify image with a PyTorch model:</b></p>
+    <form id="classify-form-pytorch" action="{{ url_for('classify_pytorch_function', filename=filename) }}" method = "post">
+        <p><input type="submit" value="Classify!" /></p>
+    </form>
+    <p><b>Classify image with a custom IBM Watson Visual Recognition model:</b></p>
+    <form id="classify-form-watson" action="{{ url_for('classify_watson_function', filename=filename) }}" method = "post">
+        <p><input type="submit" value="Classify!" /></p>
+    </form>
+
+    <h2>Upload a different image</h2>
+    <form id="upload-different-image" action="{{ url_for('index') }}" method = "get">
+        <p><input type="submit" value="Return to upload page" /></p>
+    </form>
+</body>
+</html>

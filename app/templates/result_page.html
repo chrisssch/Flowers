@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flowers - Image Classified</title>
+</head>
+<body>
+    <h1>Flowers</h2>
+    <p>Predict the species of a flower from an image.</p>
+    <h2>Image Classified</h2>
+    <p>Image classified: {{ filename }}</p>
+    <img src=" {{ url_for('send_image_function', filename=filename) }}">
+    
+    <h2> Predicted species and probabilities: </h2>
+    <p> {{ flask_topk_table }} </p>
+    <p><b>
+        Model: {{ classifier }} <br> 
+        Model type: {{ classifier_type }} 
+    </b></p>
+    <p>
+        Note: <br>
+        The PyTorch model uses multiclass classification and all class scores need to add up to one.
+        The custom IBM Watson Visual Recognition uses (I think) multitask learning, splitting up the 
+        multiclass classification task into a number of binary classification tasks equal to the number
+        of classes. Consequently, the class scores need not add up to one.
+    </p> 
+
+    <h2>Archive image and store results in database</h2>
+    <form id="write-to-sql" action="{{ url_for('store_results_function', filename=filename) }}" method = "get"> 
+        <p><input type="submit" value="Store results" /></p>
+    </form>
+
+    <h2>Upload a different image</h2>
+    <form id="upload-different-image" action="{{ url_for('index') }}" method = "get">
+        <p><input type="submit" value="Return to upload page" /></p>
+    </form>
+</body>
+</html>
+

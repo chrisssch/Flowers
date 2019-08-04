@@ -1,3 +1,9 @@
-/flowers-pytorch/images
-/flowers-pytorch/trained_model.pth
-/flowers-flask-watson
+/flowers.code-workspace
+/create_database_user_tables.sql
+
+/images_pytorch
+/images_watson_vr
+
+/app/flower_classifier.pth
+/app/sqlserver_credentials.json
+/app/watson_credentials.json
