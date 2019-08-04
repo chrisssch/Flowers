@@ -1,8 +1,8 @@
 # Flowers
 
-"Author: Christoph Schauer <br>
-"Created: 04.08.2019 <br>
-"Last Update: 04.08.2019
+Author: Christoph Schauer <br>
+Created: 04.08.2019 <br>
+Last Update: 04.08.2019
 
 ## Introduction
 
@@ -18,36 +18,39 @@ The custom IBM Watson Visual Recognition model is trained on subset of this data
 After the image is classified, the predictions of the model are displayed to the user. The results are then stored in a SQL database - I've been using Microsoft SQL Server here - with SQLAlchemy.
 
 
-## Files
+## Description of files
 
-/app
+[i]/root/app[/i]
 
-app.py: Contains the code for running the Flask app.
+[i]app.py[/i]: Contains the code for running the Flask app.
 
-s_pytorch: Objects and functions used in the /classify_pytorch route
+[i]s_pytorch[/i]: Objects and functions used in the /classify_pytorch route
 
-s_watson_vr: Objects and functions used in the /classify_watson route
+[i]s_watson_vr[/i]: Objects and functions used in the /classify_watson route
 
-s_sqlalchemy: Objects and functions used in the /results_stored route ("IS THAT REALLY THE NAME?")
+[i]s_sqlalchemy[/i]: Objects and functions used in the /results_stored route ("IS THAT REALLY THE NAME?")
 
-s_flask_table: Objects/functions used for displaying flask tables
+[i]s_flask_table[/i]: Objects/functions used for displaying flask tables
 
-watson_credentials_dummy.py: The API key for the IBM Watson Visual Recognition instance used in the Flask app. 'APIKEY' needs to be replaced with the real API key and the file needs to be renamed to watson_credentials.py.
-sqlserver_credentials_dummy.py: Contains the information necessary for connecting to a Microsoft SQL Server database through SQLAlchemy. The value for "password" needs to be replaced with the password given to this login/user and the value for "server" with your local IP address and the port you opened up for your SQL database (where applicable). The file needs to be renamed to sqlserver_credentials.py.
+[i]watson_credentials_dummy.py[/i]: The API key for the IBM Watson Visual Recognition instance used in the Flask app. 'APIKEY' needs to be replaced with the real API key and the file needs to be renamed to watson_credentials.py.
 
-label_mapping.json: Maps the labels used in the PyTorch model, where the classes are labeled with numbers ranging from 1 to 102 based on the folders that contain the images to the actual names of the flower species.  
+[i]sqlserver_credentials_dummy.py[/i]: Contains the information necessary for connecting to a Microsoft SQL Server database through SQLAlchemy. The value for "password" needs to be replaced with the password given to this login/user and the value for "server" with your local IP address and the port you opened up for your SQL database (where applicable). The file needs to be renamed to sqlserver_credentials.py.
+
+[i]label_mapping.json[/i]: Maps the labels used in the PyTorch model, where the classes are labeled with numbers ranging from 1 to 102 based on the folders that contain the images to the actual names of the flower species.  
 
 
-/
+[i]/root[/i]
 
-dependencies.txt: The Python version and all packages required to run the code.
+[i]dependencies.txt[/i]: The Python version and all packages required to run the code.
 
-train_pytorch_model.py: The code for training and saving the PyTorch model used in the app.
+[i]train_pytorch_model.py[/i]: The code for training and saving the PyTorch model used in the app.
 
-train_watson_vr_model.py: The code for training the custom IBM Watson Visual Recognition model used app.
+[i]train_watson_vr_model.py[/i]: The code for training the custom IBM Watson Visual Recognition model used app.
 
-create_database_user_tables_dummy.sql: The SQL statements for setting up the database and tables in Microsoft SQL Server to which the app writes the data as well the login and user which the app uses to connect to the database.
+[i]create_database_user_tables_dummy.sql[/i]: The SQL statements for setting up the database and tables in Microsoft SQL Server to which the app writes the data as well the login and user which the app uses to connect to the database.
 
-flowers.ipynb: This notebook code for training and saving the PyTorch model used in the app; this part is identical to train_pytorch_model.py. I also evaluate the performance of the trained model and write functions for classifying new images and visualizing these predictions. This notebook evolved from my course project for the module Deep Learning of [Udacity's Data Scientist Nanodegree](https://eu.udacity.com/course/data-scientist-nanodegree--nd025) that I did some time ago.
+[i]flowers.ipynb[/i]: This notebook contains the code for training and saving the PyTorch model used in the app; this part is identical to train_pytorch_model.py. I also evaluate the performance of the trained model and write functions for classifying new images and visualizing these predictions. The notebook evolved from my course project for the module Deep Learning of [Udacity's Data Scientist Nanodegree](https://eu.udacity.com/course/data-scientist-nanodegree--nd025) that I did some time ago.
 
-generate_flowers_image.py: Contains the code for generating the illustration in the beginning of flowers.ipynb.
+[i]generate_flowers_image.py[/i]: Contains the code for generating the illustration in the beginning of flowers.ipynb.
+
+The folders containing the images for training the PyTorch and IBM Watson Visual Recognition models are not included as they files are too big to upload on Github.
